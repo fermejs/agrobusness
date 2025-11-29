@@ -10,6 +10,7 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    padding-top: 0; /* Garantir que não há padding no body */
 }
 
 /* Navigation */
@@ -21,9 +22,10 @@ body {
     padding: 15px 0;
     position: fixed;
     top: 0;
-    z-index: 99;
+    z-index: 1000; /* Aumentado para garantir que fique acima de tudo */
     width: 100%;
     flex-wrap: wrap;
+    height: 70px; /* Altura fixa para cálculo preciso */
 }
 
 .menu a {
@@ -41,10 +43,12 @@ body {
     color: #4b4a49;
 }
 
-/* CORREÇÃO: Container principal para evitar sobreposição */
+/* Container principal - CORREÇÃO DEFINITIVA */
 .page-content {
-    margin-top: 90px;
+    margin-top: 70px; /* Espaço exato para o menu */
     width: 100%;
+    position: relative;
+    z-index: 1; /* Garantir que fica abaixo do menu */
 }
 
 /* Contenu principal */
@@ -52,10 +56,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 1; /* Garantir que fica abaixo do menu */
+}
+
+.content:first-child {
+    margin-top: 0; /* Garantir que o primeiro content não tem margem superior */
 }
 
 .content-text {
@@ -83,12 +93,15 @@ body {
     max-width: 500px;
     margin: 10px auto;
     text-align: center;
+    position: relative;
+    z-index: 1; /* Garantir que fica abaixo do menu */
 }
 
 .content-image img {
     max-width: 100%;
     border-radius: 10px;
     height: auto;
+    display: block; /* Remover espaço embaixo da imagem */
 }
 
 /* Carrousel */
@@ -229,22 +242,31 @@ footer p {
 
 /* Media Queries pour la responsivité */
 @media (min-width: 768px) {
+    .menu {
+        height: 80px; /* Altura aumentada para desktop */
+        padding: 20px 0;
+        z-index: 1000;
+    }
+
     .menu a {
         margin: 0 20px;
         font-size: 18px;
     }
 
     .page-content {
-        margin-top: 90px;
+        margin-top: 80px; /* Aumentado para corresponder à altura do menu */
     }
 
-    /* CORREÇÃO ESPECÍFICA PARA DESKTOP */
     .content {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-top: 0; /* REMOVIDO o margin-top que causava o problema */
-        padding: 20px;
+        margin-top: 0;
+        padding: 25px 20px;
+    }
+
+    .content:first-child {
+        padding-top: 10px; /* Pouco padding extra para o primeiro conteúdo */
     }
 
     .content-text {
@@ -279,6 +301,8 @@ footer p {
 @media (max-width: 480px) {
     .menu {
         padding: 10px 0;
+        height: 60px;
+        z-index: 1000;
     }
 
     .menu a {
@@ -287,12 +311,16 @@ footer p {
     }
 
     .page-content {
-        margin-top: 70px;
+        margin-top: 60px;
     }
 
     .content {
         margin-top: 0;
-        padding: 10px 15px;
+        padding: 15px 10px;
+    }
+
+    .content:first-child {
+        padding-top: 5px;
     }
 
     .content-text h1,
@@ -325,4 +353,3 @@ footer p {
         margin: 8px auto;
     }
 }
-
