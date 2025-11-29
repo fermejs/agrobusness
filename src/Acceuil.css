@@ -43,7 +43,7 @@ body {
 
 /* CORREÇÃO: Container principal para evitar sobreposição */
 .page-content {
-    margin-top: 80px;
+    margin-top: 90px;
     width: 100%;
 }
 
@@ -325,3 +325,4 @@ footer p {
         margin: 8px auto;
     }
 }
+
