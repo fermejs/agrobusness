@@ -10,6 +10,7 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    padding-top: 70px; /* Espaço para o menu fixo */
 }
 
 /* Navigation */
@@ -229,6 +230,10 @@ footer p {
         font-size: 18px;
     }
 
+    body {
+        padding-top: 70px;
+    }
+
     .content {
         flex-direction: row;
         flex-wrap: wrap;
@@ -269,6 +274,10 @@ footer p {
     .menu a {
         font-size: 14px;
         margin: 0 5px;
+    }
+
+    body {
+        padding-top: 60px;
     }
 
     .content {
